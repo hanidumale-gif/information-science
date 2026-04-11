@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EduMaster Pro | Courses Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+    </div>
+
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h2>EduMaster <span>Pro</span></h2>
+            </div>
+            <div class="menu-toggle" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="courses.html" class="active"><i class="fas fa-book"></i> <span>Courses</span></a></li>
+                <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header" data-aos="fade-up">
+            <div class="floating-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h1 class="gradient-text">Course Management System</h1>
+            <p>Create, Read, Update, and Delete courses with ease</p>
+        </div>
+
+        <!-- Add Course Form -->
+        <div class="form-container glass-effect" data-aos="fade-right" data-aos-delay="100">
+            <div class="form-header">
+                <div class="form-icon"><i class="fas fa-plus-circle"></i></div>
+                <h2>Add New Course</h2>
+            </div>
+            <form id="courseForm">
+                <div class="form-group">
+                    <input type="text" id="courseName" placeholder="📚 Course Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="courseInstructor" placeholder="👨‍🏫 Instructor Name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="courseDuration" placeholder="⏱️ Duration (e.g., 8 weeks)" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="coursePrice" placeholder="💰 Price ($)" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="courseDescription" rows="3" placeholder="📝 Course Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <select id="courseLevel">
+                        <option value="Beginner">⭐ Beginner</option>
+                        <option value="Intermediate">⭐⭐ Intermediate</option>
+                        <option value="Advanced">⭐⭐⭐ Advanced</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit btn-glow">
+                    <i class="fas fa-save"></i> Add Course
+                    <span class="btn-overlay"></span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="search-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search courses by name or instructor...">
+            </div>
+            <select id="filterLevel" class="filter-select">
+                <option value="all">📊 All Levels</option>
+                <option value="Beginner">⭐ Beginner</option>
+                <option value="Intermediate">⭐⭐ Intermediate</option>
+                <option value="Advanced">⭐⭐⭐ Advanced</option>
+            </select>
+            <button id="clearAllBtn" class="btn-clear">
+                <i class="fas fa-trash-alt"></i> Clear All
+            </button>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-section" data-aos="fade-up" data-aos-delay="300">
+            <div class="section-header-inline">
+                <h2><i class="fas fa-list"></i> All Courses</h2>
+                <div class="course-count" id="courseCount">0 courses</div>
+            </div>
+            <div id="coursesGrid" class="courses-grid"></div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Course</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <input type="text" id="editName" placeholder="Course Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="editInstructor" placeholder="Instructor" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="editDuration" placeholder="Duration" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="editPrice" placeholder="Price" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="editDescription" rows="3" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <select id="editLevel">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Update Course</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo"><i class="fas fa-graduation-cap"></i><h3>EduMaster <span>Pro</span></h3></div>
+                <p>Empowering learners worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EduMaster Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="common.js"></script>
+    <script src="crud.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        const menuToggle = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.querySelector('i').classList.toggle('fa-bars');
+                menuToggle.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+    </script>
+</body>
+</html>
