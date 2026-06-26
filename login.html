@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduMaster Pro | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="particles"></div>
+    </div>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <div class="auth-brand">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>Welcome Back</h1>
+            </div>
+            <p class="auth-subtitle">Please sign in or create a new account to continue learning.</p>
+
+            <div class="auth-toggle">
+                <button type="button" class="auth-toggle-btn active" data-target="loginPanel">Login</button>
+                <button type="button" class="auth-toggle-btn" data-target="signupPanel">Sign Up</button>
+            </div>
+
+            <div id="loginPanel" class="auth-panel">
+                <form id="loginForm" class="auth-form">
+                    <label for="email">
+                        <span>Email address</span>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </label>
+                    <label for="password">
+                        <span>Password</span>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </label>
+                    <button type="submit" class="btn-primary auth-submit">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+
+                <p id="loginMessage" class="auth-message"></p>
+
+            </div>
+
+            <div id="signupPanel" class="auth-panel hidden">
+                <form id="signupForm" class="auth-form">
+                    <label for="fullName">
+                        <span>Full name</span>
+                        <input type="text" id="fullName" placeholder="Your full name" required>
+                    </label>
+                    <label for="signupEmail">
+                        <span>Email address</span>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </label>
+                    <label for="signupPassword">
+                        <span>Password</span>
+                        <input type="password" id="signupPassword" placeholder="Create a strong password" required>
+                    </label>
+                    <label for="confirmPassword">
+                        <span>Confirm password</span>
+                        <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+                    </label>
+                    <button type="submit" class="btn-primary auth-submit">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                </form>
+
+                <p id="signupMessage" class="auth-message"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="common.js"></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('loginMessage');
+        const signupForm = document.getElementById('signupForm');
+        const signupMessage = document.getElementById('signupMessage');
+        const toggleButtons = document.querySelectorAll('.auth-toggle-btn');
+        const panels = document.querySelectorAll('.auth-panel');
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                panels.forEach(panel => panel.classList.add('hidden'));
+                button.classList.add('active');
+                document.getElementById(button.dataset.target).classList.remove('hidden');
+            });
+        });
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                loginMessage.textContent = 'Please enter your email and password.';
+                loginMessage.className = 'auth-message error';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const demoUser = { fullName: 'Demo User', email: 'demo@edumaster.com', password: '123456' };
+            const matchedUser = users.find((user) => user.email.toLowerCase() === email.toLowerCase() && user.password === password);
+            const isDemoLogin = email.toLowerCase() === demoUser.email && password === demoUser.password;
+
+            if (!matchedUser && !isDemoLogin) {
+                loginMessage.textContent = 'Invalid email or password.';
+                loginMessage.className = 'auth-message error';
+                return;
+            }
+
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', matchedUser ? matchedUser.fullName : demoUser.fullName);
+            loginMessage.textContent = 'Login successful! Redirecting...';
+            loginMessage.className = 'auth-message success';
+
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 800);
+        });
+
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!fullName || !email || !password || !confirmPassword) {
+                signupMessage.textContent = 'Please complete all fields.';
+                signupMessage.className = 'auth-message error';
+                return;
+            }
+
+            if (!strongPasswordRegex.test(password)) {
+                signupMessage.textContent = 'Password must be at least 8 characters and include uppercase, lowercase, a number, and a special character.';
+                signupMessage.className = 'auth-message error';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                signupMessage.textContent = 'Passwords do not match.';
+                signupMessage.className = 'auth-message error';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const existingUser = users.find((user) => user.email.toLowerCase() === email.toLowerCase());
+
+            if (existingUser) {
+                signupMessage.textContent = 'An account with this email already exists.';
+                signupMessage.className = 'auth-message error';
+                return;
+            }
+
+            users.push({ fullName, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', fullName);
+
+            signupMessage.textContent = 'Account created successfully! Redirecting...';
+            signupMessage.className = 'auth-message success';
+
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 800);
+        });
+    </script>
+</body>
+</html>

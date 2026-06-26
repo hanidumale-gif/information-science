@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EduMaster Pro | Premium Education Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="particles"></div>
+    </div>
+
+    <div id="authPrompt" class="auth-modal-overlay" aria-hidden="true">
+        <div class="auth-modal">
+            <h2>Welcome to EduMaster Pro</h2>
+            <p>Log in or create an account to access your dashboard, while still exploring the home page.</p>
+            <div class="auth-modal-actions">
+                <a href="login.html" class="btn-primary">Login</a>
+                <a href="signup.html" class="btn-secondary">Sign Up</a>
+            </div>
+            <button type="button" id="continueGuestBtn" class="guest-btn">Continue to Home</button>
+        </div>
+    </div>
+
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2>EduMaster <span>Pro</span></h2>
+            </div>
+            <div class="menu-toggle" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="home.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="courses.html"><i class="fas fa-book"></i> <span>Courses</span></a></li>
+                <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-badge">
+                <span class="badge">✨ Premium Learning Platform</span>
+            </div>
+            <h1 class="glow-text">Transform Your Future with <span class="highlight">Quality Education</span></h1>
+            <div class="typed-container">
+                <p class="typed-text"></p>
+            </div>
+            <div class="hero-buttons">
+                <a href="login.html" class="btn-primary pulse">
+                    <i class="fas fa-play"></i> Get Started
+                    <span class="btn-overlay"></span>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat" data-count="10000">
+                <h3><span class="counter">0</span>+</h3>
+                <p>Active Students</p>
+            </div>
+            <div class="stat" data-count="50">
+                <h3><span class="counter">0</span>+</h3>
+                <p>Expert Courses</p>
+            </div>
+            <div class="stat" data-count="24">
+                <h3><span class="counter">0</span></h3>
+                <p>Expert Instructors</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-icon">
+                <i class="fas fa-star-of-life"></i>
+            </div>
+            <h2 class="section-title">Why Choose <span>EduMaster Pro?</span></h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="card-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="icon-bg"></div>
+                </div>
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry professionals with years of real-world experience.</p>
+                <div class="card-hover-effect"></div>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="card-icon">
+                    <i class="fas fa-certificate"></i>
+                    <div class="icon-bg"></div>
+                </div>
+                <h3>Certified Courses</h3>
+                <p>Earn recognized certificates upon completion of each course.</p>
+                <div class="card-hover-effect"></div>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="card-icon">
+                    <i class="fas fa-clock"></i>
+                    <div class="icon-bg"></div>
+                </div>
+                <h3>Learn Anytime</h3>
+                <p>Access courses 24/7 from anywhere in the world.</p>
+                <div class="card-hover-effect"></div>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                    <div class="icon-bg"></div>
+                </div>
+                <h3>Community Support</h3>
+                <p>Join a vibrant community of learners and get support.</p>
+                <div class="card-hover-effect"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview-courses">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-icon">
+                <i class="fas fa-fire"></i>
+            </div>
+            <h2 class="section-title">Popular <span>Courses</span></h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="preview-grid" id="previewGrid"></div>
+        <div class="text-center" data-aos="zoom-in">
+            <a href="courses.html" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> View All Courses
+                <span class="btn-overlay"></span>
+            </a>
+        </div>
+    </section>
+
+    <section class="cta-section" data-aos="parallax">
+        <div class="cta-content">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Join thousands of students already learning on EduMaster Pro</p>
+            <a href="signup.html" class="btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Create Account
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section" data-aos="fade-right">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>EduMaster <span>Pro</span></h3>
+                </div>
+                <p>Empowering learners worldwide with quality education and professional development.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" data-aos="fade-left" data-aos-delay="200">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-envelope"></i> info@edumaster.com</p>
+                <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EduMaster Pro. All rights reserved. | Designed with <i class="fas fa-heart"></i> for excellence</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="common.js"></script>
+    <script>
+        const authPrompt = document.getElementById('authPrompt');
+        const continueGuestBtn = document.getElementById('continueGuestBtn');
+
+        if (authPrompt && !localStorage.getItem('authPromptSeen')) {
+            authPrompt.classList.add('show');
+            authPrompt.setAttribute('aria-hidden', 'false');
+        }
+
+        if (continueGuestBtn) {
+            continueGuestBtn.addEventListener('click', () => {
+                localStorage.setItem('authPromptSeen', 'true');
+                authPrompt.classList.remove('show');
+                authPrompt.setAttribute('aria-hidden', 'true');
+            });
+        }
+
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        const texts = ["Learn from Industry Experts", "Get Certified Online", "Advance Your Career", "Study Anytime, Anywhere"];
+        let index = 0;
+        let charIndex = 0;
+        const typedElement = document.querySelector('.typed-text');
+
+        function typeText() {
+            if (charIndex < texts[index].length) {
+                typedElement.textContent += texts[index].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(eraseText, 2000);
+            }
+        }
+
+        function eraseText() {
+            if (charIndex > 0) {
+                typedElement.textContent = texts[index].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseText, 50);
+            } else {
+                index = (index + 1) % texts.length;
+                setTimeout(typeText, 500);
+            }
+        }
+
+        typeText();
+
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = parseInt(counter.parentElement.parentElement.getAttribute('data-count'));
+                const count = parseInt(counter.innerText);
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+
+        function loadPreviewCourses() {
+            const courses = getCourses();
+            const previewCourses = courses.slice(0, 3);
+            const previewGrid = document.getElementById('previewGrid');
+
+            if (previewGrid) {
+                previewGrid.innerHTML = previewCourses.map((course, idx) => `
+                    <div class="preview-card" data-aos="zoom-in-up" data-aos-delay="${idx * 100}">
+                        <div class="card-badge">🔥 Popular</div>
+                        <h3>${escapeHtml(course.name)}</h3>
+                        <p class="instructor"><i class="fas fa-user-tie"></i> ${escapeHtml(course.instructor)}</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>4.8 (1.2k reviews)</span>
+                        </div>
+                        <p class="price">$${course.price}</p>
+                        <a href="courses.html" class="btn-small">Enroll Now →</a>
+                    </div>
+                `).join('');
+            }
+        }
+
+        loadPreviewCourses();
+
+        const menuToggle = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.querySelector('i').classList.toggle('fa-bars');
+                menuToggle.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+    </script>
+</body>
+</html>
