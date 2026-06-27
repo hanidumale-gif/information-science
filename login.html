@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#1e293b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:350px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+}
+
+p{
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<h2>Login</h2>
+
+<p>Student Project Demo</p>
+
+<form id="loginForm">
+
+<input
+type="email"
+id="email"
+placeholder="Email"
+required>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<p>
+Don't have an account?
+<a href="signup.html">
+Sign Up
+</a>
+</p>
+
+</div>
+
+<script>
+const DEMO_EMAIL = "iabdi0810@stu.kemu.ac.ke";
+const DEMO_PASSWORD = "123456";
+const REDIRECT_PAGE = "home.html";
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+        window.location.href = REDIRECT_PAGE;
+    } else {
+        document.getElementById("errorMessage").textContent =
+            "Invalid email or password";
+    }
+});
+</script>
+
+</body>
+</html>
