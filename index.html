@@ -1,13 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=login.html">
-    <title>EduMaster Pro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Information science</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 48px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 420px;
+            transition: transform 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: translateY(-4px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .login-header h1 {
+            font-size: 28px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .login-header h1 span {
+            color: #3b82f6;
+        }
+
+        .login-header p {
+            color: #64748b;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        /* === FORM === */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            background: white;
+        }
+
+        /* === BUTTON === */
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.15s ease;
+            margin-top: 8px;
+        }
+
+        .login-btn:hover {
+            background: #2563eb;
+            transform: scale(1.01);
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* === ERROR MESSAGE === */
+        #errorMessage {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 16px;
+            text-align: center;
+            min-height: 24px;
+            font-weight: 500;
+        }
+
+        /* === FOOTER === */
+        .login-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .login-footer strong {
+            color: #1e293b;
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 32px 20px;
+            }
+            .login-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Information<span>science</span> System</h1>
+            <p>Sign in to continue learning</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password" />
+            </div>
+
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <div id="errorMessage"></div>
+
+        <!-- <div class="login-footer">
+            <p>🔐 Demo credentials: <strong>iabdi0810@stu.kemu.ac.ke</strong> / <strong>iabdi0810@stu.kemu.ac.ke2026</strong></p>
+        </div> -->
+    </div>
+
     <script>
-        window.location.replace('login.html');
+        // ============================================================
+        //  🔐 UPDATE THESE CREDENTIALS TO CHANGE THE LOGIN
+        // ============================================================
+        const VALID_EMAIL = "iabdi0810@stu.kemu.ac.ke";
+        const VALID_PASSWORD = "iabdi0810@stu.kemu.ac.ke2026";
+
+        // Redirect successful logins to the main landing page
+        const REDIRECT_PAGE = "home.html";
+
+        // ============================================================
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting normally
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorEl = document.getElementById('errorMessage');
+
+            // Clear previous error
+            errorEl.textContent = '';
+
+            // Check credentials: allow demo credentials OR any non-empty input
+            if ((email === VALID_EMAIL && password === VALID_PASSWORD) || (email !== '' && password !== '')) {
+                // ✅ Login successful - redirect to main page
+                window.location.href = REDIRECT_PAGE;
+            } else {
+                // ❌ Missing credentials - show error
+                errorEl.textContent = '❌ Please enter your email and password.';
+                document.getElementById('password').focus();
+            }
+        });
+
+        // Auto-focus username field on page load
+        window.addEventListener('load', function() {
+            document.getElementById('email').focus();
+        });
     </script>
 </body>
 </html>
