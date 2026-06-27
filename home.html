@@ -2,262 +2,381 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Information Science System | Premium Education Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="gradient-bg"></div>
-        <div class="particles"></div>
-    </div>
-
-    <div id="authPrompt" class="auth-modal-overlay" aria-hidden="true">
+    <!-- Auth Modal -->
+    <div id="authPrompt" class="auth-modal-overlay">
         <div class="auth-modal">
-            <h2>Welcome to Information Science System</h2>
-            <p>Log in or create an account to access your dashboard, while still exploring the home page.</p>
-            <div class="auth-modal-actions">
-                <a href="login.html" class="btn-primary">Login</a>
-                <a href="signup.html" class="btn-secondary">Sign Up</a>
+            <div class="auth-modal-icon">
+                <i class="fas fa-graduation-cap"></i>
             </div>
-            <button type="button" id="continueGuestBtn" class="guest-btn">Continue to Home</button>
+            <h2>Welcome to Information Science System</h2>
+            <p>Log in or create an account to access your full dashboard and learning resources.</p>
+            <div class="auth-modal-actions">
+                <a href="#" class="btn-primary login-btn">Login</a>
+                <a href="#" class="btn-secondary signup-btn">Sign Up</a>
+            </div>
+            <button type="button" id="continueGuestBtn" class="guest-btn">
+                <i class="fas fa-arrow-right"></i> Continue as Guest
+            </button>
         </div>
     </div>
 
-    <nav class="navbar" data-aos="fade-down">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h2>information <span>science</span></h2>
+                <h2>Info<span>Science</span></h2>
             </div>
-            <div class="menu-toggle" id="mobileMenu">
+            <div class="menu-toggle" id="mobileMenu" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="home.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                <li><a href="courses.html"><i class="fas fa-book"></i> <span>Courses</span></a></li>
-                <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="#courses"><i class="fas fa-book"></i> <span>Courses</span></a></li>
+                <li><a href="#features"><i class="fas fa-star"></i> <span>Features</span></a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+                <li class="nav-cta"><a href="#" class="btn-primary-small">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <div class="hero-badge">
-                <span class="badge">✨ Premium Learning Platform</span>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="hero-badge">
+                    <span class="badge"><i class="fas fa-sparkles"></i> Premium Learning Platform</span>
+                </div>
+                <h1 class="hero-title">
+                    Transform Your Future with <br>
+                    <span class="highlight">Quality Education</span>
+                </h1>
+                <div class="typed-container">
+                    <p class="typed-text"></p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary pulse">
+                        <i class="fas fa-play"></i> Get Started
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
             </div>
-            <h1 class="glow-text">Transform Your Future with <span class="highlight">Quality Education</span></h1>
-            <div class="typed-container">
-                <p class="typed-text"></p>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat" data-count="10000">
+                    <h3><span class="counter">0</span>+</h3>
+                    <p>Active Students</p>
+                </div>
+                <div class="stat" data-count="50">
+                    <h3><span class="counter">0</span>+</h3>
+                    <p>Expert Courses</p>
+                </div>
+                <div class="stat" data-count="24">
+                    <h3><span class="counter">0</span></h3>
+                    <p>Expert Instructors</p>
+                </div>
+                <div class="stat" data-count="100">
+                    <h3><span class="counter">0</span>%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
             </div>
-            <div class="hero-buttons">
-                <a href="login.html" class="btn-primary pulse">
-                    <i class="fas fa-play"></i> Get Started
-                    <span class="btn-overlay"></span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Premium <span>Features</span></h2>
+                <p class="section-subtitle">We provide everything you need to succeed in your learning journey</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from industry professionals with years of real-world experience and proven teaching methods.</p>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Courses</h3>
+                    <p>Earn recognized certificates upon completion of each course to boost your career prospects.</p>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Learn Anytime</h3>
+                    <p>Access courses 24/7 from anywhere in the world with our mobile-friendly platform.</p>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Join a vibrant community of learners and get support from peers and mentors.</p>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Hands-on Learning</h3>
+                    <p>Practice with real-world projects and interactive coding exercises.</p>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="card-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our dedicated support team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Preview Section -->
+    <section class="preview-courses" id="courses">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Our Courses</span>
+                <h2 class="section-title">Popular <span>Courses</span></h2>
+                <p class="section-subtitle">Choose from our most popular courses and start learning today</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="preview-grid" id="previewGrid"></div>
+            <div class="text-center" data-aos="zoom-in">
+                <a href="#" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> View All Courses
                 </a>
-                <a href="#features" class="btn-secondary">
-                    <i class="fas fa-info-circle"></i> Learn More
-                </a>
-            </div>
-        </div>
-        <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat" data-count="10000">
-                <h3><span class="counter">0</span>+</h3>
-                <p>Active Students</p>
-            </div>
-            <div class="stat" data-count="50">
-                <h3><span class="counter">0</span>+</h3>
-                <p>Expert Courses</p>
-            </div>
-            <div class="stat" data-count="24">
-                <h3><span class="counter">0</span></h3>
-                <p>Expert Instructors</p>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-icon">
-                <i class="fas fa-star-of-life"></i>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our <span>Students Say</span></h2>
+                <div class="section-divider"></div>
             </div>
-            <h2 class="section-title">Why Choose <span>Information Science System?</span></h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
-                <div class="card-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <div class="icon-bg"></div>
+            <div class="testimonial-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&size=50&background=2563eb&color=fff" alt="Student">
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Software Developer</p>
+                        </div>
+                    </div>
+                    <p>"This platform transformed my career. The courses are well-structured and the instructors are amazing!"</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
-                <h3>Expert Instructors</h3>
-                <p>Learn from industry professionals with years of real-world experience.</p>
-                <div class="card-hover-effect"></div>
-            </div>
-            <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
-                <div class="card-icon">
-                    <i class="fas fa-certificate"></i>
-                    <div class="icon-bg"></div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&size=50&background=7c3aed&color=fff" alt="Student">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Data Scientist</p>
+                        </div>
+                    </div>
+                    <p>"The hands-on projects and community support helped me land my dream job in tech."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
-                <h3>Certified Courses</h3>
-                <p>Earn recognized certificates upon completion of each course.</p>
-                <div class="card-hover-effect"></div>
-            </div>
-            <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
-                <div class="card-icon">
-                    <i class="fas fa-clock"></i>
-                    <div class="icon-bg"></div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Mike+Johnson&size=50&background=059669&color=fff" alt="Student">
+                        <div>
+                            <h4>Mike Johnson</h4>
+                            <p>Product Manager</p>
+                        </div>
+                    </div>
+                    <p>"Excellent content and teaching methodology. I've recommended this to all my colleagues."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
-                <h3>Learn Anytime</h3>
-                <p>Access courses 24/7 from anywhere in the world.</p>
-                <div class="card-hover-effect"></div>
-            </div>
-            <div class="feature-card" data-aos="flip-left" data-aos-delay="400">
-                <div class="card-icon">
-                    <i class="fas fa-users"></i>
-                    <div class="icon-bg"></div>
-                </div>
-                <h3>Community Support</h3>
-                <p>Join a vibrant community of learners and get support.</p>
-                <div class="card-hover-effect"></div>
             </div>
         </div>
     </section>
 
-    <section class="preview-courses">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-icon">
-                <i class="fas fa-fire"></i>
-            </div>
-            <h2 class="section-title">Popular <span>Courses</span></h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="preview-grid" id="previewGrid"></div>
-        <div class="text-center" data-aos="zoom-in">
-            <a href="courses.html" class="btn-primary">
-                <i class="fas fa-arrow-right"></i> View All Courses
-                <span class="btn-overlay"></span>
-            </a>
-        </div>
-    </section>
-
-    <section class="cta-section" data-aos="parallax">
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
         <div class="cta-content">
-            <h2>Ready to Start Your Journey?</h2>
-            <p>Join thousands of students already learning on Information Science system</p>
-            <a href="signup.html" class="btn-primary btn-large">
-                <i class="fas fa-rocket"></i> Create Account
+            <h2>Ready to Start Your Learning Journey?</h2>
+            <p>Join thousands of students already learning on Information Science System</p>
+            <a href="#" class="btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Create Account Free
             </a>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="footer-section" data-aos="fade-right">
                 <div class="footer-logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <h3>Information<span>science</span> system</h3>
+                    <h3>Info<span>Science</span></h3>
                 </div>
-                <p>Empowering learners worldwide with quality education and professional development.</p>
+                <p>Empowering learners worldwide with quality education and professional development resources.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="home.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
-                    <li><a href="dashboard.html"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
-                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#courses"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
                 </ul>
             </div>
-            <div class="footer-section" data-aos="fade-left" data-aos-delay="200">
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" data-aos="fade-left" data-aos-delay="300">
                 <h4>Contact Info</h4>
-                <p><i class="fas fa-envelope"></i>iabdi0810@stu.kemu.ac.ke</p>
-                <p><i class="fas fa-phone"></i> +254 722511865</p>
+                <p><i class="fas fa-envelope"></i> info@informationscience.com</p>
+                <p><i class="fas fa-phone"></i> +254 722 511 865</p>
                 <p><i class="fas fa-map-marker-alt"></i> Garissa, Kenya</p>
+                <div class="newsletter">
+                    <p>Subscribe to our newsletter</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 information-science. All rights reserved. | Designed with <i class="fas fa-heart"></i> for excellence</p>
+            <p>&copy; 2026 Information Science System. All rights reserved. | Designed with <i class="fas fa-heart"></i> for excellence</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="common.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+            easing: 'ease-in-out'
+        });
+
+        // Auth Modal
         const authPrompt = document.getElementById('authPrompt');
         const continueGuestBtn = document.getElementById('continueGuestBtn');
 
         if (authPrompt && !localStorage.getItem('authPromptSeen')) {
-            authPrompt.classList.add('show');
-            authPrompt.setAttribute('aria-hidden', 'false');
+            setTimeout(() => {
+                authPrompt.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }, 1000);
         }
 
         if (continueGuestBtn) {
             continueGuestBtn.addEventListener('click', () => {
                 localStorage.setItem('authPromptSeen', 'true');
                 authPrompt.classList.remove('show');
-                authPrompt.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
             });
         }
 
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        const texts = ["Learn from Industry Experts", "Get Certified Online", "Advance Your Career", "Study Anytime, Anywhere"];
-        let index = 0;
+        // Typing Animation
+        const texts = [
+            "Learn from Industry Experts",
+            "Get Certified Online",
+            "Advance Your Career",
+            "Study Anytime, Anywhere"
+        ];
+        let textIndex = 0;
         let charIndex = 0;
         const typedElement = document.querySelector('.typed-text');
 
         function typeText() {
-            if (charIndex < texts[index].length) {
-                typedElement.textContent += texts[index].charAt(charIndex);
+            if (!typedElement) return;
+            if (charIndex < texts[textIndex].length) {
+                typedElement.textContent += texts[textIndex].charAt(charIndex);
                 charIndex++;
-                setTimeout(typeText, 100);
+                setTimeout(typeText, 80);
             } else {
-                setTimeout(eraseText, 2000);
+                setTimeout(eraseText, 2500);
             }
         }
 
         function eraseText() {
+            if (!typedElement) return;
             if (charIndex > 0) {
-                typedElement.textContent = texts[index].substring(0, charIndex - 1);
+                typedElement.textContent = texts[textIndex].substring(0, charIndex - 1);
                 charIndex--;
-                setTimeout(eraseText, 50);
+                setTimeout(eraseText, 30);
             } else {
-                index = (index + 1) % texts.length;
+                textIndex = (textIndex + 1) % texts.length;
                 setTimeout(typeText, 500);
             }
         }
 
-        typeText();
+        setTimeout(typeText, 500);
 
+        // Counter Animation
         const counters = document.querySelectorAll('.counter');
-        const speed = 200;
 
         counters.forEach(counter => {
             const updateCount = () => {
-                const target = parseInt(counter.parentElement.parentElement.getAttribute('data-count'));
-                const count = parseInt(counter.innerText);
-                const increment = target / speed;
+                const target = parseInt(counter.closest('.stat').getAttribute('data-count'));
+                const current = parseInt(counter.innerText) || 0;
+                const increment = Math.ceil(target / 80);
 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 20);
+                if (current < target) {
+                    counter.innerText = Math.min(current + increment, target);
+                    setTimeout(updateCount, 25);
                 } else {
                     counter.innerText = target;
                 }
@@ -265,23 +384,35 @@
             updateCount();
         });
 
+        // Load Courses
+        function getCourses() {
+            return [
+                { id: 1, name: 'Web Development Bootcamp', instructor: 'Sarah Chen', price: 199, category: 'Development', rating: 4.8 },
+                { id: 2, name: 'Data Science & AI Fundamentals', instructor: 'Dr. James Wang', price: 249, category: 'Data Science', rating: 4.9 },
+                { id: 3, name: 'Cybersecurity Masterclass', instructor: 'Prof. Michael Okafor', price: 299, category: 'Security', rating: 4.7 },
+                { id: 4, name: 'Cloud Computing with AWS', instructor: 'Amanda Kim', price: 179, category: 'Cloud', rating: 4.6 },
+                { id: 5, name: 'UI/UX Design Essentials', instructor: 'Lisa Park', price: 159, category: 'Design', rating: 4.8 },
+                { id: 6, name: 'Machine Learning Engineering', instructor: 'Dr. Robert Lee', price: 349, category: 'AI/ML', rating: 4.9 }
+            ];
+        }
+
         function loadPreviewCourses() {
-            const courses = getCourses();
-            const previewCourses = courses.slice(0, 3);
+            const courses = getCourses().slice(0, 3);
             const previewGrid = document.getElementById('previewGrid');
 
             if (previewGrid) {
-                previewGrid.innerHTML = previewCourses.map((course, idx) => `
+                previewGrid.innerHTML = courses.map((course, idx) => `
                     <div class="preview-card" data-aos="zoom-in-up" data-aos-delay="${idx * 100}">
                         <div class="card-badge">🔥 Popular</div>
-                        <h3>${escapeHtml(course.name)}</h3>
-                        <p class="instructor"><i class="fas fa-user-tie"></i> ${escapeHtml(course.instructor)}</p>
+                        <h3>${course.name}</h3>
+                        <p class="instructor"><i class="fas fa-user-tie"></i> ${course.instructor}</p>
                         <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span>4.8 (1.2k reviews)</span>
+                            ${'<i class="fas fa-star"></i>'.repeat(Math.floor(course.rating))}
+                            ${course.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                            <span>${course.rating} (1.2k reviews)</span>
                         </div>
                         <p class="price">$${course.price}</p>
-                        <a href="courses.html" class="btn-small">Enroll Now →</a>
+                        <a href="#" class="btn-small">Enroll Now →</a>
                     </div>
                 `).join('');
             }
@@ -289,16 +420,48 @@
 
         loadPreviewCourses();
 
+        // Mobile Menu
         const menuToggle = document.getElementById('mobileMenu');
         const navLinks = document.getElementById('navLinks');
 
         if (menuToggle) {
             menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
+                const isActive = navLinks.classList.toggle('active');
                 menuToggle.querySelector('i').classList.toggle('fa-bars');
                 menuToggle.querySelector('i').classList.toggle('fa-times');
+                menuToggle.setAttribute('aria-expanded', isActive);
             });
         }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
