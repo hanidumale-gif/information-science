@@ -10,24 +10,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Auth Modal -->
-    <div id="authPrompt" class="auth-modal-overlay">
-        <div class="auth-modal">
-            <div class="auth-modal-icon">
-                <i class="fas fa-graduation-cap"></i>
-            </div>
-            <h2>Welcome to Information Science System</h2>
-            <p>Log in or create an account to access your full dashboard and learning resources.</p>
-            <div class="auth-modal-actions">
-                <a href="#" class="btn-primary login-btn">Login</a>
-                <a href="#" class="btn-secondary signup-btn">Sign Up</a>
-            </div>
-            <button type="button" id="continueGuestBtn" class="guest-btn">
-                <i class="fas fa-arrow-right"></i> Continue as Guest
-            </button>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -45,7 +27,7 @@
                 <li><a href="#courses"><i class="fas fa-book"></i> <span>Courses</span></a></li>
                 <li><a href="#features"><i class="fas fa-star"></i> <span>Features</span></a></li>
                 <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
-                <li class="nav-cta"><a href="#" class="btn-primary-small">Get Started</a></li>
+                <li class="nav-cta"><a href="#courses" class="btn-primary-small">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -65,7 +47,7 @@
                     <p class="typed-text"></p>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary pulse">
+                    <a href="#courses" class="btn-primary pulse">
                         <i class="fas fa-play"></i> Get Started
                     </a>
                     <a href="#features" class="btn-secondary">
@@ -237,8 +219,8 @@
         <div class="cta-content">
             <h2>Ready to Start Your Learning Journey?</h2>
             <p>Join thousands of students already learning on Information Science System</p>
-            <a href="#" class="btn-primary btn-large">
-                <i class="fas fa-rocket"></i> Create Account Free
+            <a href="#courses" class="btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Explore Courses
             </a>
         </div>
     </section>
@@ -309,25 +291,6 @@
             offset: 50,
             easing: 'ease-in-out'
         });
-
-        // Auth Modal
-        const authPrompt = document.getElementById('authPrompt');
-        const continueGuestBtn = document.getElementById('continueGuestBtn');
-
-        if (authPrompt && !localStorage.getItem('authPromptSeen')) {
-            setTimeout(() => {
-                authPrompt.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }, 1000);
-        }
-
-        if (continueGuestBtn) {
-            continueGuestBtn.addEventListener('click', () => {
-                localStorage.setItem('authPromptSeen', 'true');
-                authPrompt.classList.remove('show');
-                document.body.style.overflow = '';
-            });
-        }
 
         // Typing Animation
         const texts = [
